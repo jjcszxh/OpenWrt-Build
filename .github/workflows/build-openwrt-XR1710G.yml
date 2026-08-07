@@ -8,7 +8,7 @@ on:
 
 env:
   REPO_URL: https://github.com/jjcszxh/openwrt-XR1710G.git
-  REPO_BRANCH: xr1710g-6.18-integration-test-sync-20260714
+  REPO_BRANCH: master
   CONFIG_FILE: xr1710g-6.18-integration-test-sync-20260712.config
   TZ: Asia/Shanghai
 
@@ -60,7 +60,6 @@ jobs:
         git clone https://github.com/stackia/rtp2httpd.git
         git clone https://github.com/jerrykuku/luci-theme-argon.git
         git clone https://github.com/EasyTier/luci-app-easytier.git
-        git clone https://github.com/rchen14b/luci-theme-glass.git
 
 
     - name: 注入并应用自定义配置 (.config)
@@ -115,4 +114,4 @@ jobs:
           #### 💾 固件刷机说明：
           * 如果是第一次从原厂固件刷入，请使用 `*factory.bin` 固件。
           * 如果已经是 OpenWrt 系统，请在后台选择 `*sysupgrade.bin` 固件升级。
-        files: ${{ env.FIRMWARE }}/openwrt-*.bin
+        files: ${{ env.FIRMWARE }}/openwrt-*.itb
