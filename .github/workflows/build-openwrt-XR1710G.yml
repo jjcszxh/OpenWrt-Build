@@ -9,7 +9,7 @@ on:
 env:
   REPO_URL: https://github.com/jjcszxh/openwrt-XR1710G.git
   REPO_BRANCH: master
-  CONFIG_FILE: xr1710g-6.18-integration-test-sync-20260712.config
+  CONFIG_FILE: xr1710g.config
   TZ: Asia/Shanghai
 
 jobs:
@@ -56,7 +56,6 @@ jobs:
         
         git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages.git
         git clone https://github.com/Openwrt-Passwall/openwrt-passwall.git
-        git clone https://github.com/linkease/istore
         git clone https://github.com/stackia/rtp2httpd.git
         git clone https://github.com/jerrykuku/luci-theme-argon.git
         git clone https://github.com/EasyTier/luci-app-easytier.git
@@ -96,8 +95,8 @@ jobs:
       id: tag
       if: steps.compile.outputs.status == 'success' && !cancelled()
       run: |
-        # 生成带日期的专属标签，例如：2026.06.11-BeeconMini
-        echo "release_tag=$(date +"%Y.%m.%d")-BeeconMini" >> $GITHUB_OUTPUT
+        # 生成带日期的专属标签，例如：2026.06.11-Gemtek-XR1710G
+        echo "release_tag=$(date +"%Y.%m.%d")-Gemtek-XR1710G" >> $GITHUB_OUTPUT
         echo "status=success" >> $GITHUB_OUTPUT
 
     - name: 将固件发布至 GitHub Releases
@@ -108,7 +107,7 @@ jobs:
       with:
         tag_name: ${{ steps.tag.outputs.release_tag }}
         body: |
-          ### 🚀 BeeconMini SEED AC1 专属固件发布                    
+          ### 🚀 	Gemtek-XR1710G 专属固件发布                    
           **编译完成时间：** ${{ env.DATE_TIME }} (北京时间)
                     
           #### 💾 固件刷机说明：
