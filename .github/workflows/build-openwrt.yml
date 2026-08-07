@@ -60,7 +60,6 @@ jobs:
         git clone https://github.com/stackia/rtp2httpd.git
         git clone https://github.com/jerrykuku/luci-theme-argon.git
         git clone https://github.com/EasyTier/luci-app-easytier.git
-        git clone https://github.com/rchen14b/luci-theme-glass.git
 
 
     - name: 注入并应用自定义配置 (.config)
